@@ -10,7 +10,6 @@ import {
   FaPhone,
   FaEnvelope,
   FaArrowRight,
-  FaGithub, // Added for consistency with mobile
 } from "react-icons/fa";
 
 const Footer: React.FC = () => {
@@ -288,19 +287,19 @@ const Footer: React.FC = () => {
               {/* Mobile Social Links with React Icons */}
               <div className="flex justify-start gap-3 mb-2">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/share/1CxvUhjQLX/?mibextid=wwXIfr"
                   className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
                 >
                   <FaFacebookF className="text-sm" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/hously.in?igsh=MWFtMmNsMjh0Ym5idg=="
                   className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
                 >
-                  <FaTwitter className="text-sm" />
+                  <FaInstagram className="text-sm" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/company/houlsy-finntech-realty/"
                   className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
                 >
                   <FaLinkedinIn className="text-sm" />
@@ -309,7 +308,14 @@ const Footer: React.FC = () => {
                   href="#"
                   className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
                 >
-                  <FaGithub className="text-sm" />
+                  <FaTwitter className="text-sm" />
+                </a>
+              
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
+                >
+                  <FaYoutube className="text-sm" />
                 </a>
               </div>
             </div>

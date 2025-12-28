@@ -9,34 +9,36 @@ const HeroSlider = () => {
 
   const slides = [
     {
-      title: "Transform Your Property Business with",
-      subtitle: "Smart Fintech & AI Solutions",
+      title: "Transform Your Business with",
+      subtitle: "Advanced IT Solutions",
       description:
-        "Simplifying property finance, loan management, and digital growth with intelligent technology.",
+        "Delivering scalable software, cloud infrastructure, and intelligent IT services to power modern enterprises.",
       image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80",
-      bgGradient: "from-[#0b3a66]/95 via-[#0b3a66]/70 to-[#ffd801]/20",
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
+      bgGradient:
+        "from-[#0b3a66]/95 via-[#0b3a66]/70 to-[#00c6ff]/20",
     },
     {
-      title: "Empowering Real Estate Growth with",
-      subtitle: "Digital Lending & Cloud Platforms",
+      title: "Build Digital Excellence with",
+      subtitle: "Cloud Computing & Software Services",
       description:
-        "End-to-end fintech platforms for property loans, CRM systems, and scalable real estate operations.",
+        "Secure, high-performance cloud platforms and custom software solutions designed for growth and reliability.",
       image:
-        "https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&w=1920&q=80",
-      bgGradient: "from-[#091f3a]/95 via-[#0076d8]/65 to-[#ffd801]/20",
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80",
+      bgGradient:
+        "from-[#091f3a]/95 via-[#0076d8]/65 to-[#00c6ff]/25",
     },
     {
-      title: "Build Trust & Security with",
-      subtitle: "Compliant Fintech Infrastructure",
+      title: "Protect Your Digital Ecosystem with",
+      subtitle: "Cybersecurity & IT Infrastructure",
       description:
-        "Secure, transparent, and compliant systems designed for real estate finance and customer trust.",
+        "Enterprise-grade security, compliance, and IT infrastructure solutions to safeguard your digital assets.",
       image:
-        "https://images.unsplash.com/photo-1521540216272-a50305cd4421?auto=format&fit=crop&w=1920&q=80",
-      bgGradient: "from-[#0b3a66]/90 via-[#1a2a4a]/60 to-[#ffd801]/25",
+        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80",
+      bgGradient:
+        "from-[#0b3a66]/90 via-[#1a2a4a]/60 to-[#00c6ff]/30",
     },
   ];
-
   useEffect(() => {
     const timer = setInterval(() => {
       setIsAnimating(true);

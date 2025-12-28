@@ -19,6 +19,8 @@ function WelcomePage({ onSectorClick }: WelcomePageProps) {
   const [visibleCards, setVisibleCards] = useState<boolean[]>([]);
   const statsRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeModal, setActiveModal] = useState<null | 'real-estate' | 'finance'>(null);
+
 
   useEffect(() => {
     setVisibleCards(new Array(sectors.length).fill(true));
@@ -143,7 +145,7 @@ function WelcomePage({ onSectorClick }: WelcomePageProps) {
         <img
           src={logo}
           alt="Hously Logo"
-          className="h-10 w-auto object-contain drop-shadow-2xl sm:h-12 md:h-16"
+          className="h-20 w-auto object-contain drop-shadow-2xl"
         />
       </div>
 
@@ -241,7 +243,15 @@ function WelcomePage({ onSectorClick }: WelcomePageProps) {
                 return (
                   <div
                     key={sector.id}
-                    onClick={() => onSectorClick(sector.id)}
+                    // onClick={() => onSectorClick(sector.id)}
+                    onClick={() => {
+                      if (sector.id === 'real-estate' || sector.id === 'finance') {
+                        setActiveModal(sector.id);
+                      } else {
+                        onSectorClick(sector.id); // IT & Technology
+                      }
+                    }}
+
                     onMouseEnter={() => setHoveredCard(sector.id)}
                     onMouseLeave={() => setHoveredCard(null)}
                     className="group cursor-pointer transform transition-all duration-500"
@@ -649,6 +659,36 @@ function WelcomePage({ onSectorClick }: WelcomePageProps) {
         >
           <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
         </button>
+        {/* Real Estate Modal */}
+        {activeModal === 'real-estate' && (
+          <ComingSoonModal
+            title="Real Estate Division"
+            description="Premium residential and commercial property solutions."
+            services={[
+              'Residential Projects',
+              'Commercial Spaces',
+              'Property Management',
+              'Real Estate Consulting',
+            ]}
+            onClose={() => setActiveModal(null)}
+          />
+        )}
+
+        {/* Finance Modal */}
+        {activeModal === 'finance' && (
+          <ComingSoonModal
+            title="Finance Division"
+            description="Smart financial solutions and investment services."
+            services={[
+              'Investment Advisory',
+              'Wealth Management',
+              'Financial Planning',
+              'Portfolio Management',
+            ]}
+            onClose={() => setActiveModal(null)}
+          />
+        )}
+
       </div>
 
       {/* Add custom animations to global CSS or use inline styles */}
@@ -713,5 +753,59 @@ function WelcomePage({ onSectorClick }: WelcomePageProps) {
     </div>
   );
 }
+const ComingSoonModal = ({
+  title,
+  description,
+  services,
+  onClose,
+}: {
+  title: string;
+  description: string;
+  services: string[];
+  onClose: () => void;
+}) => {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 animate-scale-in">
+        <div className="p-6 text-center">
+
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">
+            {title}
+          </h2>
+
+          <p className="text-slate-600 mb-4">{description}</p>
+
+          <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl p-4 mb-6">
+            <p className="font-semibold">Website Under Development</p>
+            <p className="text-sm opacity-90">Launching Soon 🚀</p>
+          </div>
+
+          <div className="text-left mb-6">
+            <h4 className="font-semibold mb-2 text-slate-700">
+              Our Services
+            </h4>
+
+            <ul className="grid grid-cols-2 gap-2 text-sm text-slate-600">
+              {services.map((s, i) => (
+                <li key={i} className="flex items-center gap-2">
+                  <span className="text-green-500">✔</span> {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <button
+            onClick={onClose}
+            className="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition"
+          >
+            Close
+          </button>
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
 
 export default WelcomePage;

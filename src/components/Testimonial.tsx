@@ -24,7 +24,7 @@ const TestimonialsSection: React.FC = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Mr. Laxman",
+      name: "Laxman",
       position: "Co-founder",
       rating: 5,
       text: "Their AI-powered analytics platform transformed our decision-making process, increasing efficiency by 65% in the first quarter with seamless integration and exceptional 24/7 support.",
@@ -32,7 +32,7 @@ const TestimonialsSection: React.FC = () => {
     },
     {
       id: 2,
-      name: "Mr. Kamlesh",
+      name: "Kamlesh",
       position: "Co-founder",
       rating: 5,
       text: "Cloud migration executed flawlessly with zero downtime across 15TB of data. Healthcare compliance expertise and security protocols reduced our infrastructure costs by 40% overall.",
@@ -40,7 +40,7 @@ const TestimonialsSection: React.FC = () => {
     },
     {
       id: 3,
-      name: "Mr.Satish ",
+      name: "Satish ",
       position: "Co-founder",
       rating: 5,
       text: "Our e-commerce platform's performance increased by 300% after their optimization. The AI chatbot reduced customer service costs by 45% while improving satisfaction scores significantly.",
@@ -48,7 +48,7 @@ const TestimonialsSection: React.FC = () => {
     },
     {
       id: 4,
-    name: "Mr. Vaishu",
+      name: "Sanchi",
       position: "Co-founder",
       rating: 5,
       text: "Enterprise security solution prevented 12 potential breaches in one year. Compliance audits passed perfectly and system uptime maintained 99.99% reliability through advanced monitoring.",

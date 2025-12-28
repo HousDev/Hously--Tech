@@ -36,53 +36,72 @@ const CaseStudiesSection: React.FC = () => {
   const caseStudies = [
     {
       id: 1,
-      title: "Smart Real Estate Management Platform",
-      category: "Real Estate Solutions",
-      description: "End-to-end property management system for listings, bookings, and customer engagement.",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop",
-      metrics: "Increased lead conversion by 40%, reduced manual work by 60%"
+      title: "Enterprise Cloud Migration Platform",
+      category: "Cloud Computing",
+      description:
+        "Large-scale cloud migration solution enabling secure, scalable, and cost-optimized infrastructure for enterprises.",
+      image:
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop",
+      metrics:
+        "Reduced infrastructure costs by 42%, improved scalability and uptime"
     },
     {
       id: 2,
-      title: "Finance & Accounting Automation System",
-      category: "Finance & FinTech",
-      description: "Secure financial platform for billing, reporting, and transaction tracking.",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop",
-      metrics: "Improved processing speed by 50%, enhanced data accuracy"
+      title: "AI-Powered Business Analytics System",
+      category: "Artificial Intelligence",
+      description:
+        "Advanced analytics platform using AI and machine learning for real-time insights and decision-making.",
+      image:
+        "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop",
+      metrics:
+        "Improved decision accuracy by 55%, reduced manual reporting effort"
     },
     {
       id: 3,
-      title: "Custom Enterprise IT Solution",
-      category: "IT Services & Software",
-      description: "Scalable IT solution for business operations, analytics, and workflow automation.",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format&fit=crop",
-      metrics: "Boosted operational efficiency by 45%, improved system reliability"
+      title: "Custom Enterprise Software Solution",
+      category: "Software Development",
+      description:
+        "Tailor-made enterprise software for workflow automation, data integration, and operational efficiency.",
+      image:
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format&fit=crop",
+      metrics:
+        "Boosted operational efficiency by 45%, improved system reliability"
     },
     {
       id: 4,
-      title: "Real Estate Virtual Tour Platform",
-      category: "Real Estate Solutions",
-      description: "Immersive 360° virtual property tours with AI-powered property recommendations.",
-      image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop",
-      metrics: "Increased property views by 75%, reduced physical visits by 50%"
+      title: "IT Service Management Automation",
+      category: "IT Services",
+      description:
+        "Automated ITSM platform for incident management, service requests, and performance monitoring.",
+      image:
+        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop",
+      metrics:
+        "Reduced incident resolution time by 60%, improved service availability"
     },
     {
       id: 5,
-      title: "Digital Banking Transformation",
-      category: "Finance & FinTech",
-      description: "Modern mobile banking app with biometric authentication and AI-driven financial insights.",
-      image: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=800&auto=format&fit=crop",
-      metrics: "Gained 500K+ users, improved customer satisfaction by 65%"
+      title: "Enterprise Cybersecurity Framework",
+      category: "Cybersecurity",
+      description:
+        "Multi-layered security architecture protecting enterprise systems from advanced cyber threats.",
+      image:
+        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop",
+      metrics:
+        "Prevented 99.9% of threats, reduced security incidents by 85%"
     },
     {
       id: 6,
-      title: "Enterprise Cybersecurity Framework",
-      category: "IT Services & Software",
-      description: "Comprehensive security solution protecting against advanced cyber threats.",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop",
-      metrics: "Prevented 99.9% of threats, reduced security incidents by 85%"
+      title: "DevOps & CI/CD Transformation",
+      category: "DevOps & Automation",
+      description:
+        "End-to-end DevOps pipeline implementation with automated testing, deployment, and monitoring.",
+      image:
+        "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&auto=format&fit=crop",
+      metrics:
+        "Accelerated release cycles by 70%, improved deployment stability"
     }
   ];
+
 
   const subTitle = "Case Study";
   const mainTitle = "IT Projects Case Study";
