@@ -1,5 +1,9 @@
 import React from "react";
 import logo from "../assets/images/footer-logo1.png";
+import { useNavigate } from "react-router-dom";
+
+
+
 import {
   FaFacebookF,
   FaTwitter,
@@ -7,12 +11,54 @@ import {
   FaInstagram,
   FaYoutube,
   FaMapMarkerAlt,
-  FaPhone,
   FaEnvelope,
   FaArrowRight,
+  FaPhoneAlt,
 } from "react-icons/fa";
 
+// Define ScrollLink component outside of Footer
+interface ScrollLinkProps {
+  to: string;
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+const ScrollLink: React.FC<ScrollLinkProps> = ({
+  to,
+  children,
+  className = "",
+  style,
+}) => {
+  const navigate = useNavigate();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
+    // Navigate to the new page
+    navigate(to);
+
+    // Scroll to top after a small delay to ensure navigation happens first
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }, 10);
+  };
+
+  return (
+    <a href={to} className={className} style={style} onClick={handleClick}>
+      {children}
+    </a>
+  );
+};
+
 const Footer: React.FC = () => {
+  // Function to handle link clicks with scroll to top (for inline use)
+  const navigate = useNavigate();
+
   return (
     <>
       {/* Desktop Footer (hidden on mobile) */}
@@ -20,7 +66,7 @@ const Footer: React.FC = () => {
         {/* Footer Widget Area */}
         <div className="relative overflow-hidden max-w-[1820px] mx-auto ">
           {/* Background Layers */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-blue-900/80 to-gray-900/90" />
+          <div className="absolute inset-0  bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800" />
 
           {/* Content */}
           <div className="relative z-10 pt-[20px] pb-[20px] px-6">
@@ -54,6 +100,8 @@ const Footer: React.FC = () => {
                     <div className="flex gap-3">
                       <a
                         href="https://www.facebook.com/share/1CxvUhjQLX/?mibextid=wwXIfr"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:-translate-y-1"
                         title="Follow us on Facebook"
                       >
@@ -61,6 +109,8 @@ const Footer: React.FC = () => {
                       </a>
                       <a
                         href="https://www.instagram.com/hously.in?igsh=MWFtMmNsMjh0Ym5idg=="
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:-translate-y-1"
                         title="Follow us on Instagram"
                       >
@@ -68,6 +118,8 @@ const Footer: React.FC = () => {
                       </a>
                       <a
                         href="https://www.linkedin.com/company/houlsy-finntech-realty/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:-translate-y-1"
                         title="Follow us on LinkedIn"
                       >
@@ -102,20 +154,57 @@ const Footer: React.FC = () => {
                   >
                     Useful Links
                   </h3>
+
                   <ul className="space-y-3">
-                    {["Home", "Services", "About Us", "Contact", "Career"].map(
-                      (item) => (
-                        <li key={item}>
-                          <a
-                            href="#"
-                            className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
-                            style={{ fontFamily: '"DM Sans", sans-serif' }}
-                          >
-                            {item}
-                          </a>
-                        </li>
-                      )
-                    )}
+                    <li>
+                      <ScrollLink
+                        to="/"
+                        className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
+                        style={{ fontFamily: '"DM Sans", sans-serif' }}
+                      >
+                        Home
+                      </ScrollLink>
+                    </li>
+
+                    <li>
+                      <ScrollLink
+                        to="/services"
+                        className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
+                        style={{ fontFamily: '"DM Sans", sans-serif' }}
+                      >
+                        Services
+                      </ScrollLink>
+                    </li>
+
+                    <li>
+                      <ScrollLink
+                        to="/about"
+                        className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
+                        style={{ fontFamily: '"DM Sans", sans-serif' }}
+                      >
+                        About Us
+                      </ScrollLink>
+                    </li>
+
+                    <li>
+                      <ScrollLink
+                        to="/contact"
+                        className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
+                        style={{ fontFamily: '"DM Sans", sans-serif' }}
+                      >
+                        Contact
+                      </ScrollLink>
+                    </li>
+
+                    <li>
+                      <ScrollLink
+                        to="/career"
+                        className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
+                        style={{ fontFamily: '"DM Sans", sans-serif' }}
+                      >
+                        Career
+                      </ScrollLink>
+                    </li>
                   </ul>
                 </div>
 
@@ -170,7 +259,6 @@ const Footer: React.FC = () => {
                       "Cloud & DevOps",
                       "Software Development",
                       "IT Consulting",
-                     
                     ].map((service) => (
                       <li key={service}>
                         <a
@@ -200,27 +288,29 @@ const Footer: React.FC = () => {
                   {/* Contact Info with React Icons */}
                   <div className="mb-8 space-y-4">
                     <div className="flex items-start gap-3 mb-4">
-                      <FaMapMarkerAlt className="text-blue-400 mt-1 flex-shrink-0" />
+                      <FaMapMarkerAlt className="text-[#fed700] mt-1 flex-shrink-0" />
                       <p
                         className="text-gray-300"
                         style={{ fontFamily: '"DM Sans", sans-serif' }}
                       >
-                       First Floor,Tamara Uprise Rahatni,
+                        First Floor,Tamara Uprise Rahatni,
                         <br />
-                       Pune, 411017
+                        Pune, 411017
                       </p>
                     </div>
+
                     <div className="flex items-center gap-3 mb-4">
-                      <FaPhone className="text-blue-400 flex-shrink-0" />
+                      <FaPhoneAlt className="text-[#fed700] flex-shrink-0" />
                       <a
-                        href="tel:+11234567890"
+                        href="tel:+919371009381"
                         className="text-gray-300 hover:text-white transition-colors"
                       >
                         +91 9371 00 9381
                       </a>
                     </div>
+
                     <div className="flex items-center gap-3">
-                      <FaEnvelope className="text-blue-400 flex-shrink-0" />
+                      <FaEnvelope className="text-[#fed700] flex-shrink-0" />
                       <a
                         href="mailto:info@hously.in"
                         className="text-gray-300 hover:text-white transition-colors"
@@ -231,29 +321,28 @@ const Footer: React.FC = () => {
                   </div>
 
                   {/* Newsletter */}
-                <div className="max-w-[250px]">
-  <p
-    className="text-gray-300 mb-4 text-sm"
-    style={{ fontFamily: '"DM Sans", sans-serif' }}
-  >
-    Subscribe to our newsletter
-  </p>
+                  <div className="max-w-[250px]">
+                    <p
+                      className="text-gray-300 mb-4 text-sm"
+                      style={{ fontFamily: '"DM Sans", sans-serif' }}
+                    >
+                      Subscribe to our newsletter
+                    </p>
 
-  <div className="flex items-center gap-2">
-    {/* Input Field */}
-    <input
-      type="email"
-      placeholder="Enter your email"
-      className="w-full h-[45px] bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors"
-    />
+                    <div className="flex items-center gap-2">
+                      {/* Input Field */}
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        className="w-full h-[45px] bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors"
+                      />
 
-    {/* Arrow Button */}
-    <button className="w-[45px] h-[45px] bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors flex-shrink-0">
-      <FaArrowRight className="text-sm text-white" />
-    </button>
-  </div>
-</div>
-
+                      {/* Arrow Button */}
+                      <button className="w-[45px] h-[45px] bg-[#0076d8] rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors flex-shrink-0">
+                        <FaArrowRight className="text-sm text-white" />
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -277,29 +366,34 @@ const Footer: React.FC = () => {
                 </div>
               </div>
 
-             <p className="text-gray-300 text-sm mb-2 text-left sm:text-center">
-  Leading provider of comprehensive IT solutions including web
-  development, AI integration, cloud services, and digital
-  transformation.
-</p>
-
+              <p className="text-gray-300 text-sm mb-2 text-left sm:text-center">
+                Leading provider of comprehensive IT solutions including web
+                development, AI integration, cloud services, and digital
+                transformation.
+              </p>
 
               {/* Mobile Social Links with React Icons */}
               <div className="flex justify-start gap-3 mb-2">
                 <a
                   href="https://www.facebook.com/share/1CxvUhjQLX/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
                 >
                   <FaFacebookF className="text-sm" />
                 </a>
                 <a
                   href="https://www.instagram.com/hously.in?igsh=MWFtMmNsMjh0Ym5idg=="
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
                 >
                   <FaInstagram className="text-sm" />
                 </a>
                 <a
                   href="https://www.linkedin.com/company/houlsy-finntech-realty/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
                 >
                   <FaLinkedinIn className="text-sm" />
@@ -310,7 +404,6 @@ const Footer: React.FC = () => {
                 >
                   <FaTwitter className="text-sm" />
                 </a>
-              
                 <a
                   href="#"
                   className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
@@ -328,18 +421,46 @@ const Footer: React.FC = () => {
                   Useful Links
                 </h3>
                 <ul className="space-y-2">
-                  {["Home", "Services", "About Us", "Contact", "Career"].map(
-                    (item) => (
-                      <li key={item}>
-                        <a
-                          href="#"
-                          className="text-gray-300 hover:text-white text-sm transition-colors"
-                        >
-                          {item}
-                        </a>
-                      </li>
-                    )
-                  )}
+                  <li>
+                    <ScrollLink
+                      to="/"
+                      className="text-gray-300 hover:text-white text-sm transition-colors"
+                    >
+                      Home
+                    </ScrollLink>
+                  </li>
+                  <li>
+                    <ScrollLink
+                      to="/services"
+                      className="text-gray-300 hover:text-white text-sm transition-colors"
+                    >
+                      Services
+                    </ScrollLink>
+                  </li>
+                  <li>
+                    <ScrollLink
+                      to="/about"
+                      className="text-gray-300 hover:text-white text-sm transition-colors"
+                    >
+                      About Us
+                    </ScrollLink>
+                  </li>
+                  <li>
+                    <ScrollLink
+                      to="/contact"
+                      className="text-gray-300 hover:text-white text-sm transition-colors"
+                    >
+                      Contact
+                    </ScrollLink>
+                  </li>
+                  <li>
+                    <ScrollLink
+                      to="/career"
+                      className="text-gray-300 hover:text-white text-sm transition-colors"
+                    >
+                      Career
+                    </ScrollLink>
+                  </li>
                 </ul>
               </div>
 
@@ -376,7 +497,6 @@ const Footer: React.FC = () => {
                     "Cloud & DevOps",
                     "Software Dev",
                     "IT Consulting",
-                    
                   ].map((service) => (
                     <li key={service}>
                       <a
@@ -397,32 +517,29 @@ const Footer: React.FC = () => {
                 </h3>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <FaMapMarkerAlt className="text-blue-400 mt-1 text-xs flex-shrink-0" />
-                      <p
-                        className="text-gray-300"
-                        style={{ fontFamily: '"DM Sans", sans-serif' }}
-                      >
-                       First Floor,Tamara Uprise,
-                        <br />
-                       Pune, 411017
-
-                        
-
-                      </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <FaPhone className="text-blue-400 text-xs flex-shrink-0" />
-                    <a
-                      href="tel:+11234567890"
-                      className="text-gray-300 hover:text-white text-xs"
+                    <FaMapMarkerAlt className="text-[#0076d8] mt-1 text-xs flex-shrink-0" />
+                    <p
+                      className="text-gray-300 text-xs"
+                      style={{ fontFamily: '"DM Sans", sans-serif' }}
                     >
-                      +91 9637 00 9639
+                      First Floor,Tamara Uprise,
+                      <br />
+                      Pune, 411017
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <FaPhoneAlt className="text-[#0076d8] flex-shrink-0" />
+                    <a
+                      href="tel:+919371009381"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
+                      +91 9371 00 9381
                     </a>
                   </div>
                   <div className="flex items-center gap-2">
-                    <FaEnvelope className="text-blue-400 text-xs flex-shrink-0" />
+                    <FaEnvelope className="text-[#0076d8] text-xs flex-shrink-0" />
                     <a
-                      href="mailto:info@hously.com"
+                      href="mailto:info@hously.in"
                       className="text-gray-300 hover:text-white text-xs"
                     >
                       info@hously.in
@@ -434,53 +551,72 @@ const Footer: React.FC = () => {
 
             {/* Mobile Newsletter */}
             <div className="mb-8">
-  <h3 className="text-white text-lg font-bold mb-4">Subscribe to our Newsletter</h3>
+              <h3 className="text-white text-lg font-bold mb-4">
+                Subscribe to our Newsletter
+              </h3>
 
-  <div className="flex items-center gap-2">
-    {/* Input */}
-    <input
-      type="email"
-      placeholder="Enter your email"
-      className="w-full h-[45px] bg-white/10 border border-white/20 rounded-full px-4 text-white placeholder-gray-400 text-sm focus:outline-none"
-    />
+              <div className="flex items-center gap-2">
+                {/* Input */}
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full h-[45px] bg-white/10 border border-white/20 rounded-full px-4 text-white placeholder-gray-400 text-sm focus:outline-none"
+                />
 
-    {/* Arrow Button */}
-    <button className="w-[45px] h-[45px] bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors flex-shrink-0">
-      <FaArrowRight className="text-sm text-white" />
-    </button>
-  </div>
-</div>
-
+                {/* Arrow Button */}
+                <button className="w-[45px] h-[45px] bg-[#0076d8] rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors flex-shrink-0">
+                  <FaArrowRight className="text-sm text-white" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Footer - Both Desktop & Mobile */}
-   <footer className="bg-gray-900 py-4">
-  <div className="w-full flex flex-col sm:flex-row items-center sm:items-center sm:justify-between">
-    
-    {/* Left corner © text */}
-    <p className="text-gray-400 text-xs sm:text-sm text-left pl-2">
-      © {new Date().getFullYear()} Hously Finntech Realty. All rights reserved.
-    </p>
+      <footer className="bg-gray-900 py-4">
+        <div className="w-full flex flex-col sm:flex-row items-center sm:items-center sm:justify-between">
+          {/* Left corner © text (heading/text added, no CSS change) */}
+          <p className="text-gray-400 text-xs sm:text-sm text-left pl-2">
+            © {new Date().getFullYear()} <span>Hously Finntech Realty</span>.
+            All rights reserved.
+          </p>
 
-    {/* Right corner links */}
-    <div className="flex gap-4 text-xs sm:text-sm pr-2">
-      {["Privacy", "Terms", "Sitemap"].map((item) => (
-        <a
-          key={item}
-          href="#"
-          className="text-gray-400 hover:text-white transition"
-        >
-          {item}
-        </a>
-      ))}
-    </div>
-
-  </div>
-</footer>
-
-
+          {/* Right corner links (only links added) */}
+          <div className="flex gap-4 text-xs sm:text-sm pr-2">
+            <a
+              href="/privacy-policy"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/privacy-policy', { state: { fromWelcome: false } });
+              }}
+              className="text-gray-400 hover:text-white transition"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms-of-service"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/terms-of-service', { state: { fromWelcome: false } });
+              }}
+              className="text-gray-400 hover:text-white transition"
+            >
+              Terms of Service
+            </a>
+            <a
+              href="/cookie-policy"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/cookie-policy', { state: { fromWelcome: false } });
+              }}
+              className="text-gray-400 hover:text-white transition"
+            >
+              Cookie Policy
+            </a>
+          </div>
+        </div>
+      </footer>
 
       {/* Global Styles */}
       <style>{`
