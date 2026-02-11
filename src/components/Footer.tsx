@@ -527,15 +527,19 @@ const Footer: React.FC = () => {
                       Pune, 411017
                     </p>
                   </div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <FaPhoneAlt className="text-[#0076d8] flex-shrink-0" />
+                  <div className="flex items-center gap-2 mb-4">
+                    <FaPhoneAlt className="text-[#0076d8] flex-shrink-0 text-sm sm:text-base" />
+
                     <a
                       href="tel:+919371009381"
-                      className="text-gray-300 hover:text-white transition-colors"
+                      className="text-gray-300 hover:text-white transition-colors 
+               whitespace-nowrap 
+               text-xs sm:text-sm md:text-base"
                     >
-                      +91 9371 00 9381
+                      +91&nbsp;9371&nbsp;00&nbsp;9381
                     </a>
                   </div>
+
                   <div className="flex items-center gap-2">
                     <FaEnvelope className="text-[#0076d8] text-xs flex-shrink-0" />
                     <a
